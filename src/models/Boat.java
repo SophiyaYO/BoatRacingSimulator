@@ -51,4 +51,9 @@ public abstract class Boat implements Comparable<Boat> {
                 return model.hashCode();
         }
 
+    @Override
+    public int compareTo(Boat o) {
+        return this.model.compareTo(o.model);
+    }
+
 }
