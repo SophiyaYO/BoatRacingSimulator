@@ -26,6 +26,8 @@ public class Yacht extends Boat {
 
     @Override
     public double calcSpeed(Race race) {
-        return 0;
+        return (this.engine.getOutput()
+                - (this.getWeight() + this.cargoWeight)
+        + (race.getCurrentSpeed() / 2d));
     }
 }
