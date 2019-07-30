@@ -5,6 +5,6 @@ public class ArgumentException extends Exception {
 
 
     public ArgumentException(String message) {
-        this.message = message;
+        super(message);
     }
 }
