@@ -3,7 +3,7 @@ package models;
 import exceptions.ArgumentException;
 import helpers.BoatValidator;
 
-public abstract class Boat {
+public abstract class Boat implements Comparable<Boat> {
         private static  final int MIN_MODEL_LENGTH = 5;
         private String model;
         private int weight;
@@ -36,6 +36,19 @@ public abstract class Boat {
                 }
         }
 
+        @Override
+        public boolean equals(Object o) {
+                if (this == o) return true;
+                if (o == null || getClass() != o.getClass()) return false;
 
+                Boat boat = (Boat) o;
+
+                return model.equals(boat.model);
+        }
+
+        @Override
+        public int hashCode() {
+                return model.hashCode();
+        }
 
 }
