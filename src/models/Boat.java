@@ -17,12 +17,8 @@ public abstract class Boat implements Comparable<Boat> {
                 if (Validator.validateParam(weight)) {
                         this.weight = weight;
                 } else {
-                        throw new ArgumentException(this.generateErrorMessage("Weight"));
+                        throw new ArgumentException(Validator.generateErrorMessage("Weight"));
                 }
-        }
-
-        protected String generateErrorMessage(String paramName) {
-                return String.format("%s  must be a positive integer.", paramName);
         }
 
         private void setModel(String model) throws ArgumentException {

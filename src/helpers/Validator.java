@@ -13,4 +13,8 @@ public class Validator {
     public static boolean validateSailEfficiency(int efiiciency) {
         return efiiciency > 0 && efiiciency < 101;
     }
+
+    public static String generateErrorMessage(String paramName) {
+        return String.format("%s  must be a positive integer.", paramName);
+    }
 }
