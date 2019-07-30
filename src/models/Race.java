@@ -50,6 +50,10 @@ public class Race {
         return this.windSpeed;
     }
 
+    public int getDistance() {
+        return this.distance;
+    }
+
     public Set<Boat> getParticipants() {
         return this.participants;
     }
