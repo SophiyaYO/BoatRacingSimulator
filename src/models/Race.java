@@ -44,6 +44,10 @@ public class Race {
         this.participants.add(participant);
     }
 
+    public int getCurrentSpeed() {
+        return this.currentSpeed;
+    }
+
     public Set<Boat> getParticipants() {
         return this.participants;
     }
