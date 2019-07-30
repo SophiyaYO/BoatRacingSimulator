@@ -22,6 +22,8 @@ public class SailBoat extends Boat {
 
     @Override
     public double calcSpeed(Race race) {
-        return (race.);
+        return ((race.getWindSpeed() * (sailEfficiency / 100.00))
+         - this.getWeight()
+        + (race.getCurrentSpeed() / 2d));
     }
 }
