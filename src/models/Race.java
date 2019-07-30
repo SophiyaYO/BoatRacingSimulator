@@ -46,6 +46,10 @@ public class Race {
         return this.currentSpeed;
     }
 
+    public int getWindSpeed() {
+        return this.windSpeed;
+    }
+
     public Set<Boat> getParticipants() {
         return this.participants;
     }

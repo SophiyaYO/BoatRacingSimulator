@@ -22,6 +22,6 @@ public class SailBoat extends Boat {
 
     @Override
     public double calcSpeed(Race race) {
-        return 0;
+        return (race.);
     }
 }
