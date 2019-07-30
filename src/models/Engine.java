@@ -3,8 +3,8 @@ package models;
 import exceptions.ArgumentException;
 import helpers.Validator;
 
-public abstract class Engine {
-    private static  final int MIN_MODEL_LENGTH = 3;
+public abstract class Engine implements Comparable<Engine> {
+    private static final int MIN_MODEL_LENGTH = 3;
 
     private String model;
     private int horsepower;
@@ -16,7 +16,7 @@ public abstract class Engine {
         this.setDisplacement(displacement);
     }
 
-    public void setModel(String model) throws ArgumentException {
+    private void setModel(String model) throws ArgumentException {
         if (Validator.validateEngine(model)) {
             this.model = model;
 
@@ -32,7 +32,7 @@ public abstract class Engine {
             this.horsepower = horsepower;
 
         } else {
-           throw new  ArgumentException(Validator.generateErrorMessage("Horsepower"));
+            throw new ArgumentException(Validator.generateErrorMessage("Horsepower"));
         }
     }
 
@@ -41,7 +41,26 @@ public abstract class Engine {
             this.displacement = displacement;
 
         } else {
-            throw new  ArgumentException(Validator.generateErrorMessage("Displacement"));
+            throw new ArgumentException(Validator.generateErrorMessage("Displacement"));
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null
+                ||
+                getClass().getSuperclass()
+                !=
+                o.getClass().getSuperclass()) return false;
+
+        Engine engine = (Engine) o;
+
+        return model.equals(engine.model);
+    }
+
+    @Override
+    public int hashCode() {
+        return model.hashCode();
     }
 }
