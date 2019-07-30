@@ -113,6 +113,18 @@ public class MainController {
                                 this.race.getDistance() / (finished.get(0).calcSpeed(this.race))
                         );
 
+                        System.out.printf("Second place: %s Model: %s Time: %.2f sec",
+                                finished.get(1).getClass().getSimpleName(),
+                                finished.get(1).getModel(),
+                                this.race.getDistance() / (finished.get(1).calcSpeed(this.race))
+                        );
+
+                        System.out.printf("Third place: %s Model: %s Time: %.2f sec",
+                                finished.get(2).getClass().getSimpleName(),
+                                finished.get(2).getModel(),
+                                this.race.getDistance() / (finished.get(2).calcSpeed(this.race))
+                        );
+
                         this.race = null;
                         break;
                 }
