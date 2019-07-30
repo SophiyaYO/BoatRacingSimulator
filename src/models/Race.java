@@ -4,10 +4,8 @@ import exceptions.ArgumentException;
 import exceptions.DuplicateModelException;
 import helpers.Validator;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Race {
     private int distance;
@@ -50,5 +48,13 @@ public class Race {
 
     public Set<Boat> getParticipants() {
         return this.participants;
+    }
+
+    public void startRace() {
+        this.participants = this.participants.stream()
+                .sorted((f,s)-> {
+                    return Double.compare( f.calcSpeed(this) , s.calcSpeed(this));
+                })
+        .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 }
