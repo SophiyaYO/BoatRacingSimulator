@@ -33,4 +33,12 @@ public class Race {
             throw new ArgumentException(Validator.generateErrorMessage("Distance"));
         }
     }
+
+    public void addParticipant(Boat participant) {
+        this.participants.add(participant);
+    }
+
+    public List<Boat> getParticipants() {
+        return this.participants;
+    }
 }
