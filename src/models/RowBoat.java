@@ -21,6 +21,6 @@ public class RowBoat extends Boat {
 
     @Override
     public double calcSpeed(Race race) {
-        return 0;
+        return ((this.oars * 100) - this.getWeight() + race.getCurrentSpeed());
     }
 }
