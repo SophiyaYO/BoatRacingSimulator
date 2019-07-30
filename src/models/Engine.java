@@ -2,9 +2,10 @@ package models;
 
 import exceptions.ArgumentException;
 import helpers.Validator;
+import models.interfaces.Model;
 import models.interfaces.Output;
 
-public abstract class Engine implements Comparable<Engine>, Output {
+public abstract class Engine implements Comparable<Engine>, Output, Model {
     private static final int MIN_MODEL_LENGTH = 3;
 
     private String model;
@@ -44,6 +45,11 @@ public abstract class Engine implements Comparable<Engine>, Output {
         } else {
             throw new ArgumentException(Validator.generateErrorMessage("Displacement"));
         }
+    }
+
+    @Override
+    public String getModel() {
+        return this.model;
     }
 
     @Override
