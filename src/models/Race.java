@@ -54,9 +54,14 @@ public class Race {
         this.participants = this.participants
                 .stream()
                 .sorted(
-                        (f, s) ->
+                        (f, s) -> {
+                            System.out.println("First -> " + f.calcSpeed(this));
+                            System.out.println("Second -> " +s.calcSpeed(this));
                                 Double.compare(f.calcSpeed(this),
-                                s.calcSpeed(this)))
+                                s.calcSpeed(this));
+    })
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
+
+
 }
