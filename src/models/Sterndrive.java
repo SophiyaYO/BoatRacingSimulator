@@ -9,7 +9,7 @@ public class Sterndrive extends Engine {
     }
 
     @Override
-    public int getOutputMethod() {
+    public int getOutput() {
         return this.getHorsepower() * 7 + this.getDisplacement();
     }
 }

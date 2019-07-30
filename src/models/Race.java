@@ -23,7 +23,7 @@ public class Race {
         this.windSpeed = windSpeed;
         this.currentSpeed = currentSpeed;
         this.allowMottorBoats = allowMotorBoats;
-        this.participants = new HashSet<>();
+        this.participants = new LinkedHashSet<>();
     }
 
     private void setDistance(int distance) throws ArgumentException {
@@ -51,10 +51,12 @@ public class Race {
     }
 
     public void startRace() {
-        this.participants = this.participants.stream()
-                .sorted((f,s)-> {
-                    return Double.compare( f.calcSpeed(this) , s.calcSpeed(this));
-                })
-        .collect(Collectors.toCollection(LinkedHashSet::new));
+        this.participants = this.participants
+                .stream()
+                .sorted(
+                        (f, s) ->
+                                Double.compare(f.calcSpeed(this),
+                                s.calcSpeed(this)))
+                .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 }
