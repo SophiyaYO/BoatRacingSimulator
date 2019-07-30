@@ -63,4 +63,9 @@ public abstract class Engine implements Comparable<Engine> {
     public int hashCode() {
         return model.hashCode();
     }
+
+    @Override
+    public int compareTo(Engine o) {
+        return this.model.compareTo(o.model);
+    }
 }
