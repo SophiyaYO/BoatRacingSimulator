@@ -18,11 +18,12 @@ public class MainController {
 
     public MainController(EngineFactory engineFactory, BoatFactory boatFactory) {
         this.scanner = new Scanner(System.in);
-        this.engineFactory = engineFactory;
-        this.boatFactory = boatFactory;
         this.engineRepository = new RepositoryImpl<>();
         this.boatRepository = new RepositoryImpl<>();
+        this.engineFactory = engineFactory;
+        this.boatFactory = boatFactory;
 
+        this.boatFactory.
     }
 
     public void run() {
