@@ -35,4 +35,8 @@ public class RepositoryImpl<T extends Model> implements Repository<T> {
     }
 
 
+    @Override
+    public String getModel() {
+        return null;
+    }
 }

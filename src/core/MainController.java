@@ -2,6 +2,7 @@ package core;
 
 import exceptions.ArgumentException;
 import exceptions.DuplicateModelException;
+import exceptions.NonExistantModelException;
 import models.Boat;
 import models.Engine;
 import repositories.Repository;
@@ -23,7 +24,7 @@ public class MainController {
         this.engineFactory = engineFactory;
         this.boatFactory = boatFactory;
 
-        this.boatFactory.
+        this.boatFactory.setEngineRepository(this.engineRepository);
     }
 
     public void run() {
@@ -40,8 +41,19 @@ public class MainController {
                 switch (command) {
 
                     case "CreateBoatEngine":
-                        engineRepository.add(this.engineFactory.produce(args));
+                        Engine engine = this.engineFactory.produce(args);
+
+                        if (engine != null) {
+                            engineRepository.add(engine);
+                            System.out.printf(
+                                    "Engine model %s with %s HP and displacement %s cm3 created successfully.%n",
+                                    args[1],
+                                    args[2],
+                                    args[3]);
+                        }
+
                         break;
+
                     case "CreateRowBoat":
                     case "CreatePowerBoat":
                     case "CreateSailBoat":
@@ -50,8 +62,11 @@ public class MainController {
                         break;
 
                 }
-            } catch (ArgumentException | DuplicateModelException e) {
-                e.printStackTrace();
+            } catch (ArgumentException |
+                    DuplicateModelException |
+                    NonExistantModelException e) {
+
+                System.out.println(e.getMessage());
             }
         }
 

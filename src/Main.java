@@ -1,3 +1,4 @@
+import core.BoatWorkshop;
 import core.MainController;
 import models.Boat;
 import models.Engine;
