@@ -21,7 +21,7 @@ public abstract class Boat {
                 }
         }
 
-        private String generateErrorMessage(String paramName) {
+        protected String generateErrorMessage(String paramName) {
                 return String.format("%s  must be a positive integer.", paramName);
         }
 
@@ -35,6 +35,7 @@ public abstract class Boat {
                                         + " symbols long.");
                 }
         }
+
 
 
 }
