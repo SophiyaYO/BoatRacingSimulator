@@ -11,5 +11,8 @@ public class Jet extends Engine {
     }
 
 
-
+    @Override
+    public int getOutputMethod() {
+        return this.getHorsepower() * 5 + this.getDisplacement();
+    }
 }
