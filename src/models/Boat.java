@@ -13,8 +13,12 @@ public abstract class Boat {
                 this.setWeight(weight);
         }
 
-        protected void setWeight(int weight) {
-
+        protected void setWeight(int weight) throws ArgumentException {
+                if (BoatValidator.validateParam(weight)) {
+                        this.weight = weight;
+                } else {
+                        throw new ArgumentException("A Boat’s Weight must be a positive (non-zero) integer.");
+                }
         }
 
         private void setModel(String model) throws ArgumentException {
