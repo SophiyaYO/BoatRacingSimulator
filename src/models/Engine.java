@@ -32,11 +32,16 @@ public abstract class Engine {
             this.horsepower = horsepower;
 
         } else {
-           throw new  ArgumentException( Validator.generateErrorMessage("Horsepower"));
+           throw new  ArgumentException(Validator.generateErrorMessage("Horsepower"));
         }
     }
 
-    private void setDisplacement(int displacement) {
-        this.displacement = displacement;
+    private void setDisplacement(int displacement) throws ArgumentException {
+        if (Validator.validateParam(displacement)) {
+            this.displacement = displacement;
+
+        } else {
+            throw new  ArgumentException(Validator.generateErrorMessage("Displacement"));
+        }
     }
 }
