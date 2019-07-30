@@ -1,7 +1,11 @@
 package repositories;
 
-public interface Repository<T> {
+import exceptions.DuplicateModelException;
+import exceptions.NonExistantModelException;
+import models.interfaces.Model;
 
-    void add(T entity);
-    T get(String model);
+public interface Repository<T> extends Model {
+
+    void add(T entity) throws DuplicateModelException;
+    T get(String model) throws NonExistantModelException;
 }
