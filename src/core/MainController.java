@@ -58,7 +58,18 @@ public class MainController {
                     case "CreatePowerBoat":
                     case "CreateSailBoat":
                     case "CreateYacht":
-                        boatRepository.add(boatFactory.produce(args));
+                        Boat boat = boatFactory.produce(args);
+
+                        if (boat != null) {
+                            boatRepository.add(boat);
+                            System.out.printf("%s with model %s registered successfully.%n",
+                                    args[0]
+                                            .replace("Create", "")
+                                            .replace("Boat", " Boat"),
+                                    args[1]
+                                    );
+
+                        }
                         break;
 
                 }
