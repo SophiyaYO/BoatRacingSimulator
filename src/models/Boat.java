@@ -10,7 +10,11 @@ public abstract class Boat {
 
         protected Boat(String model, int weight) throws ArgumentException {
                 this.setModel(model);
-                this.weight = weight;
+                this.setWeight(weight);
+        }
+
+        protected void setWeight(int weight) {
+
         }
 
         private void setModel(String model) throws ArgumentException {
