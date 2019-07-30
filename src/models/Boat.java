@@ -1,7 +1,7 @@
 package models;
 
 import exceptions.ArgumentException;
-import helpers.BoatValidator;
+import helpers.Validator;
 
 public abstract class Boat implements Comparable<Boat> {
         private static  final int MIN_MODEL_LENGTH = 5;
@@ -14,7 +14,7 @@ public abstract class Boat implements Comparable<Boat> {
         }
 
         private void setWeight(int weight) throws ArgumentException {
-                if (BoatValidator.validateParam(weight)) {
+                if (Validator.validateParam(weight)) {
                         this.weight = weight;
                 } else {
                         throw new ArgumentException(this.generateErrorMessage("Weight"));
@@ -26,7 +26,7 @@ public abstract class Boat implements Comparable<Boat> {
         }
 
         private void setModel(String model) throws ArgumentException {
-                if (BoatValidator.validateModel(model)) {
+                if (Validator.validateModel(model)) {
                         this.model = model;
                 } else {
                         throw new ArgumentException(

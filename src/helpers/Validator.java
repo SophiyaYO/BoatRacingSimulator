@@ -1,6 +1,6 @@
 package helpers;
 
-public class BoatValidator {
+public class Validator {
 
     public static boolean validateModel(String model) {
         return model.length() >= 5;
