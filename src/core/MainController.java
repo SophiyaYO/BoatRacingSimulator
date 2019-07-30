@@ -9,7 +9,10 @@ import models.Race;
 import repositories.Repository;
 import repositories.RepositoryImpl;
 
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class MainController {
     private Scanner scanner;
@@ -56,21 +59,7 @@ public class MainController {
                         }
 
                         break;
-                    case "OpenRace":
-                        if (this.race == null) {
-                            Race race = new Race(Integer.parseInt(args[1]),
-                                    Integer.parseInt(args[2]),
-                                    Integer.parseInt(args[3]),
-                                    Boolean.parseBoolean(args[4]));
 
-
-                            System.out.printf(
-                                    "A new race with distance %s meters, wind speed %s and ocean current speed %s has been set.%n",
-                                    args[1],
-                                    args[2],
-                                    args[3]);
-                        }
-                        break;
                     case "CreateRowBoat":
                     case "CreatePowerBoat":
                     case "CreateSailBoat":
@@ -88,12 +77,49 @@ public class MainController {
 
                         }
                         break;
+                    case "OpenRace":
+                        if (this.race == null) {
+                            Race race = new Race(Integer.parseInt(args[1]),
+                                    Integer.parseInt(args[2]),
+                                    Integer.parseInt(args[3]),
+                                    Boolean.parseBoolean(args[4]));
 
+
+                            System.out.printf(
+                                    "A new race with distance %s meters, wind speed %s and ocean current speed %s has been set.%n",
+                                    args[1],
+                                    args[2],
+                                    args[3]);
+                        }
+                        break;
+                    case "SignUpBoat":
+                        this.race.addParticipant(this.boatRepository.get(args[1]));
+                        System.out.printf(
+                                "Boat with model %s has signed up for the current Race.%n",
+                                args[1]);
+
+                        break;
+
+                    case "StartRace":
+                        this.race.startRace();
+
+                        List<Boat> finished = this.race.getParticipants().stream()
+                                .limit(3)
+                                .collect(Collectors.toList());
+
+                        System.out.printf("First place: %s Model: %s Time: %.2f sec",
+                                );
+
+                        this.race = null;
+                        break;
                 }
             } catch (ArgumentException |
                     DuplicateModelException |
                     NonExistantModelException e) {
 
+                if (e instanceof NonExistantModelException) {
+                    System.out.println();
+                }
                 System.out.println(e.getMessage());
             }
         }
