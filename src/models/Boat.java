@@ -17,8 +17,12 @@ public abstract class Boat {
                 if (BoatValidator.validateParam(weight)) {
                         this.weight = weight;
                 } else {
-                        throw new ArgumentException("Boat’s  must be a positive integer.");
+                        throw new ArgumentException(this.generateErrorMessage("Weight"));
                 }
+        }
+
+        private String generateErrorMessage(String paramName) {
+                return String.format("%s  must be a positive integer.", paramName);
         }
 
         private void setModel(String model) throws ArgumentException {
