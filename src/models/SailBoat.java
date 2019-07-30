@@ -19,4 +19,9 @@ public class SailBoat extends Boat {
             throw new ArgumentException("Sail Effectiveness must be between [1...100].");
         }
     }
+
+    @Override
+    public double calcSpeed(Race race) {
+        return 0;
+    }
 }

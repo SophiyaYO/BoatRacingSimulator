@@ -15,7 +15,12 @@ public class RowBoat extends Boat {
         if (Validator.validateParam(oars)) {
             this.oars = oars;
         } else {
-            throw new ArgumentException(this.generateErrorMessage("Oars"));
+            throw new ArgumentException(Validator.generateErrorMessage("Oars"));
         }
+    }
+
+    @Override
+    public double calcSpeed(Race race) {
+        return 0;
     }
 }

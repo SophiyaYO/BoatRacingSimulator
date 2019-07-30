@@ -24,4 +24,8 @@ public class Yacht extends Boat {
     }
 
 
+    @Override
+    public double calcSpeed(Race race) {
+        return 0;
+    }
 }
