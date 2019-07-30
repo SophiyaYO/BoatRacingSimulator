@@ -5,6 +5,7 @@ import exceptions.DuplicateModelException;
 import exceptions.NonExistantModelException;
 import models.Boat;
 import models.Engine;
+import models.Race;
 import repositories.Repository;
 import repositories.RepositoryImpl;
 
@@ -16,6 +17,7 @@ public class MainController {
     private BoatFactory boatFactory;
     private Repository<Engine> engineRepository;
     private Repository<Boat> boatRepository;
+    private Race race;
 
     public MainController(EngineFactory engineFactory, BoatFactory boatFactory) {
         this.scanner = new Scanner(System.in);
@@ -25,6 +27,7 @@ public class MainController {
         this.boatFactory = boatFactory;
 
         this.boatFactory.setEngineRepository(this.engineRepository);
+        this.race = null;
     }
 
     public void run() {
@@ -53,7 +56,15 @@ public class MainController {
                         }
 
                         break;
+                    case "OpenRace":
+                        if (this.race == null) {
+                            Race race = new Race(Integer.parseInt(args[1]),
+                                    Integer.parseInt(args[2]),
+                                    Integer.parseInt(args[3]),
+                                    Boolean.parseBoolean(args[4]));
 
+                        }
+                        break;
                     case "CreateRowBoat":
                     case "CreatePowerBoat":
                     case "CreateSailBoat":
