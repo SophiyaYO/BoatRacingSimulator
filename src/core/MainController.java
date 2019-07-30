@@ -45,7 +45,7 @@ public class MainController {
                     case "CreatePowerBoat":
                     case "CreateSailBoat":
                     case "CreateYacht":
-boatRepository.add();
+                        boatRepository.add(boatFactory.produce(args));
                         break;
 
                 }
@@ -55,8 +55,8 @@ boatRepository.add();
         }
 
 
-            line = scanner.nextLine();
-        }
-
+        line = scanner.nextLine();
     }
+
+}
 
