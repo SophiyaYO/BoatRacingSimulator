@@ -1,17 +1,20 @@
 package models;
 
 import exceptions.ArgumentException;
+import exceptions.DuplicateModelException;
 import helpers.Validator;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Race {
     private int distance;
     private int windSpeed;
     private int currentSpeed;
     private boolean allowMottorBoats;
-    private List<Boat> participants;
+    private Set<Boat> participants;
 
 
     public Race(int distance, int windSpeed,
@@ -22,7 +25,7 @@ public class Race {
         this.windSpeed = windSpeed;
         this.currentSpeed = currentSpeed;
         this.allowMottorBoats = allowMotorBoats;
-        this.participants = new ArrayList<>();
+        this.participants = new HashSet<>();
     }
 
     private void setDistance(int distance) throws ArgumentException {
@@ -34,11 +37,14 @@ public class Race {
         }
     }
 
-    public void addParticipant(Boat participant) {
+    public void addParticipant(Boat participant) throws DuplicateModelException {
+        if (!this.participants.add(participant)) {
+            throw new DuplicateModelException();
+        }
         this.participants.add(participant);
     }
 
-    public List<Boat> getParticipants() {
+    public Set<Boat> getParticipants() {
         return this.participants;
     }
 }
