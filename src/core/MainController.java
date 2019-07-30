@@ -63,6 +63,12 @@ public class MainController {
                                     Integer.parseInt(args[3]),
                                     Boolean.parseBoolean(args[4]));
 
+
+                            System.out.printf(
+                                    "A new race with distance %s meters, wind speed %s and ocean current speed %s has been set.%n",
+                                    args[1],
+                                    args[2],
+                                    args[3]);
                         }
                         break;
                     case "CreateRowBoat":
