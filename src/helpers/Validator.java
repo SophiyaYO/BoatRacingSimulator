@@ -2,8 +2,12 @@ package helpers;
 
 public class Validator {
 
-    public static boolean validateModel(String model) {
+    public static boolean validateBoatModel(String model) {
         return model.length() >= 5;
+    }
+
+    public static boolean validateEngine(String model) {
+        return model.length() >= 3;
     }
 
     public static boolean validateParam(int param) {

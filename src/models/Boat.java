@@ -22,7 +22,7 @@ public abstract class Boat implements Comparable<Boat> {
         }
 
         private void setModel(String model) throws ArgumentException {
-                if (Validator.validateModel(model)) {
+                if (Validator.validateBoatModel(model)) {
                         this.model = model;
                 } else {
                         throw new ArgumentException(
