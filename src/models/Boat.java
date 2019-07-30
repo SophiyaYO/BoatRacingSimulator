@@ -22,6 +22,10 @@ public abstract class Boat implements Comparable<Boat>, Speed {
         }
     }
 
+    public String getModel() {
+        return this.model;
+    }
+
     protected int getWeight() {
         return this.weight;
     }
@@ -31,9 +35,9 @@ public abstract class Boat implements Comparable<Boat>, Speed {
             this.model = model;
         } else {
             throw new ArgumentException(
-                    "Model's name must be at least "
+                    ("Model's name must be at least "
                             + MIN_MODEL_LENGTH
-                            + " symbols long.");
+                            + " symbols long."));
         }
     }
 

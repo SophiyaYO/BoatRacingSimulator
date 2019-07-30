@@ -55,11 +55,11 @@ public class Race {
                 .stream()
                 .sorted(
                         (f, s) -> {
-                            System.out.println("First -> " + f.calcSpeed(this));
-                            System.out.println("Second -> " +s.calcSpeed(this));
-                                Double.compare(f.calcSpeed(this),
-                                s.calcSpeed(this));
-    })
+                            System.out.println(f.getModel() + " -> " + f.calcSpeed(this));
+                            System.out.println(s.getModel() + " -> " + s.calcSpeed(this));
+                            return Double.compare(s.calcSpeed(this),
+                                   f.calcSpeed(this));
+                        })
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
