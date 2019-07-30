@@ -2,9 +2,10 @@ package models;
 
 import exceptions.ArgumentException;
 import helpers.Validator;
+import models.interfaces.Model;
 import models.interfaces.Speed;
 
-public abstract class Boat implements Comparable<Boat>, Speed {
+public abstract class Boat implements Comparable<Boat>, Speed , Model {
     private static final int MIN_MODEL_LENGTH = 5;
     private String model;
     private int weight;
@@ -22,6 +23,7 @@ public abstract class Boat implements Comparable<Boat>, Speed {
         }
     }
 
+    @Override
     public String getModel() {
         return this.model;
     }
