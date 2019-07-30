@@ -19,7 +19,7 @@ public class Yacht extends Boat {
         if (Validator.validateParam(cargoWeight)) {
             this.cargoWeight = cargoWeight;
         } else {
-            throw new ArgumentException(this.generateErrorMessage("Cargo Weight"));
+            throw new ArgumentException(Validator.generateErrorMessage("Cargo Weight"));
         }
     }
 
