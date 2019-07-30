@@ -4,7 +4,7 @@ import exceptions.ArgumentException;
 import helpers.BoatValidator;
 
 public abstract class Boat {
-        private static  final int MIN_MODEL_LENGHT = 5;
+        private static  final int MIN_MODEL_LENGTH = 5;
         private String model;
         private int weight;
 
@@ -13,11 +13,11 @@ public abstract class Boat {
                 this.setWeight(weight);
         }
 
-        protected void setWeight(int weight) throws ArgumentException {
+        private void setWeight(int weight) throws ArgumentException {
                 if (BoatValidator.validateParam(weight)) {
                         this.weight = weight;
                 } else {
-                        throw new ArgumentException("A Boat’s Weight must be a positive (non-zero) integer.");
+                        throw new ArgumentException("Boat’s  must be a positive integer.");
                 }
         }
 
@@ -27,7 +27,7 @@ public abstract class Boat {
                 } else {
                         throw new ArgumentException(
                                 "Model's name must be at least "
-                                        + MIN_MODEL_LENGHT
+                                        + MIN_MODEL_LENGTH
                                         + " symbols long.");
                 }
         }
