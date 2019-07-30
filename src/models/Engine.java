@@ -7,13 +7,13 @@ public abstract class Engine {
     private static  final int MIN_MODEL_LENGTH = 3;
 
     private String model;
-    private int horsePower;
+    private int horsepower;
     private int displacement;
 
     public Engine(String model, int horsePower, int displacement) throws ArgumentException {
         this.setModel(model);
-        this.horsePower = horsePower;
-        this.displacement = displacement;
+        this.setHorsepower(horsePower);
+        this.setDisplacement(displacement);
     }
 
     public void setModel(String model) throws ArgumentException {
@@ -25,5 +25,18 @@ public abstract class Engine {
                     + MIN_MODEL_LENGTH
                     + " symbols long.");
         }
+    }
+
+    private void setHorsepower(int horsepower) throws ArgumentException {
+        if (Validator.validateParam(horsepower)) {
+            this.horsepower = horsepower;
+
+        } else {
+           throw new  ArgumentException( Validator.generateErrorMessage("Horsepower"));
+        }
+    }
+
+    private void setDisplacement(int displacement) {
+        this.displacement = displacement;
     }
 }
