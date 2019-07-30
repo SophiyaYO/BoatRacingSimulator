@@ -108,7 +108,10 @@ public class MainController {
                                 .collect(Collectors.toList());
 
                         System.out.printf("First place: %s Model: %s Time: %.2f sec",
-                                );
+                                finished.get(0).getClass().getSimpleName(),
+                                finished.get(0).getModel(),
+                                this.race.getDistance() / (finished.get(0).calcSpeed(this.race))
+                        );
 
                         this.race = null;
                         break;
