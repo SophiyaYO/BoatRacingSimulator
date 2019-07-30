@@ -2,8 +2,9 @@ package models;
 
 import exceptions.ArgumentException;
 import helpers.Validator;
+import models.interfaces.Output;
 
-public abstract class Engine implements Comparable<Engine> {
+public abstract class Engine implements Comparable<Engine>, Output {
     private static final int MIN_MODEL_LENGTH = 3;
 
     private String model;
@@ -51,8 +52,8 @@ public abstract class Engine implements Comparable<Engine> {
         if (o == null
                 ||
                 getClass().getSuperclass()
-                !=
-                o.getClass().getSuperclass()) return false;
+                        !=
+                        o.getClass().getSuperclass()) return false;
 
         Engine engine = (Engine) o;
 
@@ -67,5 +68,13 @@ public abstract class Engine implements Comparable<Engine> {
     @Override
     public int compareTo(Engine o) {
         return this.model.compareTo(o.model);
+    }
+
+    protected int getHorsepower() {
+        return this.horsepower;
+    }
+
+    protected int getDisplacement() {
+        return this.displacement;
     }
 }
