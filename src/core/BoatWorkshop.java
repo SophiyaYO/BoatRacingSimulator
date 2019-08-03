@@ -9,6 +9,10 @@ public class BoatWorkshop implements BoatFactory {
 
     private Repository<Engine> engineRepository;
 
+    public BoatWorkshop(Repository<Engine> engineRepository) {
+        this.engineRepository = engineRepository;
+    }
+
     public void setEngineRepository(Repository<Engine> engineRepository) {
         this.engineRepository = engineRepository;
     }
