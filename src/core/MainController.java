@@ -9,6 +9,7 @@ import models.Race;
 import repositories.Repository;
 import repositories.RepositoryImpl;
 
+import javax.naming.InsufficientResourcesException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -127,9 +128,7 @@ public class MainController {
                         this.race = null;
                         break;
                 }
-            } catch (ArgumentException |
-                    DuplicateModelException |
-                    NonExistanceModelException e) {
+            } catch (ArgumentException | DuplicateModelException | NonExistanceModelException | InsufficientResourcesException e) {
 
                 if (e instanceof NonExistanceModelException) {
                     System.out.println();
