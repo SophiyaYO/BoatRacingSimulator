@@ -3,15 +3,16 @@ package models;
 import exceptions.ArgumentException;
 import exceptions.DuplicateModelException;
 import helpers.Validator;
+import models.interfaces.RaceModel;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Race {
+public class Race implements RaceModel {
     private int distance;
     private int windSpeed;
     private int currentSpeed;
-    private boolean allowMottorBoats;
+    private boolean allowMotorBoats;
     private Set<Boat> participants;
 
 
@@ -22,7 +23,7 @@ public class Race {
         this.setDistance(distance);
         this.windSpeed = windSpeed;
         this.currentSpeed = currentSpeed;
-        this.allowMottorBoats = allowMotorBoats;
+        this.allowMotorBoats = allowMotorBoats;
         this.participants = new LinkedHashSet<>();
     }
 
@@ -35,11 +36,36 @@ public class Race {
         }
     }
 
-    public void addParticipant(Boat participant) throws DuplicateModelException {
+    public int getDistance() {
+        return this.distance;
+    }
+
+    public void addParticipant(Boat participant) throws DuplicateModelException, ArgumentException {
+       boolean hasEngine = Arrays.stream(participant.getClass().getDeclaredFields())
+               .filter(field -> field.getType().equals(Engine.class))
+               .findFirst()
+               .orElse(null)
+               != null;
+
+        if (!this.allowMotorBoats && hasEngine) {
+            throw new ArgumentException("The specified boat does not meet the race constraints.");
+
+        }
+
         if (!this.participants.add(participant)) {
             throw new DuplicateModelException();
         }
-        this.participants.add(participant);
+
+    }
+
+    @Override
+    public String getStatistics() {
+        return null;
+    }
+
+    @Override
+    public String getResult() {
+        return null;
     }
 
     public int getCurrentSpeed() {
@@ -50,8 +76,9 @@ public class Race {
         return this.windSpeed;
     }
 
-    public int getDistance() {
-        return this.distance;
+    @Override
+    public boolean allowsMotorBoats() {
+        return this.allowMotorBoats;
     }
 
     public Set<Boat> getParticipants() {
