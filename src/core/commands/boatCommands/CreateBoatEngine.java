@@ -8,6 +8,9 @@ import models.Engine;
 import repositories.Repository;
 
 public class CreateBoatEngine implements Command {
+    private Repository<Engine> engineRepository;
+    private EngineFactory engineFactory;
+
     public CreateBoatEngine(Repository<Engine> engineRepository, EngineFactory engineFactory) {
         this.engineRepository = engineRepository;
         this.engineFactory = engineFactory;
