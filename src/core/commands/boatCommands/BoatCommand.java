@@ -29,7 +29,7 @@ public abstract class BoatCommand implements Command {
             } else {
                 throw new NonExistanceModelException("Invalid boat model!");
             }
-        } catch (ArgumentException | DuplicateModelException | NonExistanceModelException | NonExistanceModelException e) {
+        } catch (ArgumentException | DuplicateModelException | NonExistanceModelException e) {
             message = e.getMessage();
         }
         return message;
