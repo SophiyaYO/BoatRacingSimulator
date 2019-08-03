@@ -1,7 +1,12 @@
 package core;
 
+import core.commands.End;
 import core.commands.boatCommands.*;
 import core.commands.interfaces.Command;
+import core.commands.raceCommands.GetStatistic;
+import core.commands.raceCommands.OpenRace;
+import core.commands.raceCommands.SignUpBoat;
+import core.commands.raceCommands.StartRace;
 import core.controllers.interfaces.RaceManager;
 import models.Boat;
 import models.Engine;
