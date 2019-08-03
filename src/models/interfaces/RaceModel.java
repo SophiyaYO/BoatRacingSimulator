@@ -4,6 +4,7 @@ import exceptions.ArgumentException;
 import exceptions.DuplicateModelException;
 import models.Boat;
 
+import javax.naming.InsufficientResourcesException;
 import java.util.Set;
 
 public interface RaceModel {
@@ -17,7 +18,7 @@ public interface RaceModel {
 
     Set<Boat> getParticipants();
 
-    void startRace();
+    void startRace() throws InsufficientResourcesException;
 
     void addParticipant(Boat participant) throws ArgumentException, DuplicateModelException;
 
