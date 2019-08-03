@@ -41,11 +41,11 @@ public class Race implements RaceModel {
     }
 
     public void addParticipant(Boat participant) throws DuplicateModelException, ArgumentException {
-       boolean hasEngine = Arrays.stream(participant.getClass().getDeclaredFields())
-               .filter(field -> field.getType().equals(Engine.class))
-               .findFirst()
-               .orElse(null)
-               != null;
+        boolean hasEngine = Arrays.stream(participant.getClass().getDeclaredFields())
+                .filter(field -> field.getType().equals(Engine.class))
+                .findFirst()
+                .orElse(null)
+                != null;
 
         if (!this.allowMotorBoats && hasEngine) {
             throw new ArgumentException("The specified boat does not meet the race constraints.");
@@ -59,9 +59,33 @@ public class Race implements RaceModel {
     }
 
     @Override
-
     public String getStatistics() {
-        return null;
+        Map<String, Integer> boatsByCount = new TreeMap<>();
+
+        for (Boat participant : participants) {
+            String className = participant.getClass().getSimpleName();
+
+            if (!boatsByCount.containsKey(className)) {
+                boatsByCount.put(className, 1);
+
+            } else {
+                boatsByCount.put(className, boatsByCount.get(className) + 1);
+            }
+        }
+
+        StringBuilder builder = new StringBuilder();
+
+        for (Map.Entry<String, Integer> entry : boatsByCount.entrySet()) {
+            double percentage = (entry.getValue() * 1d / this.participants.size()) * 100;
+
+            builder
+                    .append(entry.getKey())
+                    .append(" -> ")
+                    .append(String.format("%.2f%%", percentage))
+                    .append(System.lineSeparator());
+        }
+
+        return builder.toString().trim();
     }
 
     @Override
@@ -94,7 +118,7 @@ public class Race implements RaceModel {
                             System.out.println(f.getModel() + " -> " + f.calcSpeed(this));
                             System.out.println(s.getModel() + " -> " + s.calcSpeed(this));
                             return Double.compare(s.calcSpeed(this),
-                                   f.calcSpeed(this));
+                                    f.calcSpeed(this));
                         })
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
