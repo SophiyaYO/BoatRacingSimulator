@@ -1,7 +1,7 @@
 package repositories;
 
 import exceptions.DuplicateModelException;
-import exceptions.NonExistantModelException;
+import exceptions.NonExistanceModelException;
 import models.interfaces.Model;
 
 import java.util.HashMap;
@@ -25,10 +25,10 @@ public class RepositoryImpl<T extends Model> implements Repository<T> {
     }
 
     @Override
-    public T get(String model) throws NonExistantModelException {
+    public T get(String model) throws NonExistanceModelException {
 
         if (this.entities.containsKey(model)) {
-            throw new NonExistantModelException();
+            throw new NonExistanceModelException();
         }
 
         return this.entities.get(model);

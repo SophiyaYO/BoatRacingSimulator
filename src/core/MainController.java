@@ -2,7 +2,7 @@ package core;
 
 import exceptions.ArgumentException;
 import exceptions.DuplicateModelException;
-import exceptions.NonExistantModelException;
+import exceptions.NonExistanceModelException;
 import models.Boat;
 import models.Engine;
 import models.Race;
@@ -129,9 +129,9 @@ public class MainController {
                 }
             } catch (ArgumentException |
                     DuplicateModelException |
-                    NonExistantModelException e) {
+                    NonExistanceModelException e) {
 
-                if (e instanceof NonExistantModelException) {
+                if (e instanceof NonExistanceModelException) {
                     System.out.println();
                 }
                 System.out.println(e.getMessage());

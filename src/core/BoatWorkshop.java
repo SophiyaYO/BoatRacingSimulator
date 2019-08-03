@@ -1,7 +1,7 @@
 package core;
 
 import exceptions.ArgumentException;
-import exceptions.NonExistantModelException;
+import exceptions.NonExistanceModelException;
 import models.*;
 import repositories.Repository;
 
@@ -14,7 +14,7 @@ public class BoatWorkshop implements BoatFactory {
     }
 
     @Override
-    public Boat produce(String[] args) throws ArgumentException, NonExistantModelException {
+    public Boat produce(String[] args) throws ArgumentException, NonExistanceModelException {
         String typeContainer = args[0];
 
         Boat boat = null;
