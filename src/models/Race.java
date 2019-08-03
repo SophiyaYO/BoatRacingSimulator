@@ -90,7 +90,37 @@ public class Race implements RaceModel {
 
     @Override
     public String getResult() {
-        return null;
+        StringBuilder builder = new StringBuilder();
+
+        List<Boat> finished = this.participants
+                .stream()
+                .limit(3)
+                .collect(Collectors.toList());
+
+        String[] placeTable = {
+                "First place: ",
+                "Second place: ",
+                "Third place: "};
+
+        for (int i = 0; i < finished.size(); i++) {
+            builder
+                    .append(placeTable[i])
+                    .append(finished.get(i).getClass().getSimpleName())
+                    .append(" Model: ")
+                    .append(finished.get(i).getModel())
+                    .append(" Time: ");
+
+            double time = this.getDistance() / finished.get(i).calcSpeed(this);
+
+            String timeValue =
+                    (time < 0
+                            || time == Double.POSITIVE_INFINITY
+                            || time == Double.NEGATIVE_INFINITY)
+                            ? "Did not finish!"
+                            : String.format("%.2f sec", time);
+        }
+
+        return builder.toString().trim();
     }
 
     public int getCurrentSpeed() {
