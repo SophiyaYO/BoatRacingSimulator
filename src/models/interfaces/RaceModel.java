@@ -1,5 +1,7 @@
 package models.interfaces;
 
+import exceptions.ArgumentException;
+import exceptions.DuplicateModelException;
 import models.Boat;
 
 import java.util.Set;
@@ -17,7 +19,7 @@ public interface RaceModel {
 
     void startRace();
 
-    void addParticipant(Boat participant);
+    void addParticipant(Boat participant) throws ArgumentException, DuplicateModelException;
 
     String getStatistics();
 

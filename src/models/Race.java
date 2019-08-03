@@ -59,6 +59,7 @@ public class Race implements RaceModel {
     }
 
     @Override
+
     public String getStatistics() {
         return null;
     }
