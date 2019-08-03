@@ -4,7 +4,7 @@ import exceptions.ArgumentException;
 import helpers.Validator;
 
 public class Yacht extends Boat {
-    private  Engine engine;
+    private Engine engine;
     private int cargoWeight;
 
     public Yacht(String model, int weight,

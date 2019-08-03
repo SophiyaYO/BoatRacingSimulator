@@ -3,9 +3,9 @@ package models;
 import exceptions.ArgumentException;
 import helpers.Validator;
 import models.interfaces.Model;
-import models.interfaces.Speed;
+import models.interfaces.SpeedCalculator;
 
-public abstract class Boat implements Comparable<Boat>, Speed , Model {
+public abstract class Boat implements Comparable<Boat>, SpeedCalculator, Model {
     private static final int MIN_MODEL_LENGTH = 5;
     private String model;
     private int weight;

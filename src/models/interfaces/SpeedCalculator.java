@@ -2,7 +2,7 @@ package models.interfaces;
 
 import models.Race;
 
-public interface Speed {
+public interface SpeedCalculator {
 
     double calcSpeed(Race race);
 }
