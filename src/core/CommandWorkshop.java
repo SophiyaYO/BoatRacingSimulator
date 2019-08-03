@@ -1,5 +1,6 @@
 package core;
 
+import core.commands.boatCommands.*;
 import core.commands.interfaces.Command;
 import core.controllers.interfaces.RaceManager;
 import models.Boat;
