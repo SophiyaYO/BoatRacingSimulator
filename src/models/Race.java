@@ -5,6 +5,7 @@ import exceptions.DuplicateModelException;
 import helpers.Validator;
 import models.interfaces.RaceModel;
 
+import javax.naming.InsufficientResourcesException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -127,6 +128,30 @@ public class Race implements RaceModel {
         return this.currentSpeed;
     }
 
+    public Set<Boat> getParticipants() {
+        return this.participants;
+    }
+
+    public void startRace() throws InsufficientResourcesException {
+        if (this.participants.size() < 3) {
+            throw new InsufficientResourcesException("Not enough contestants for the race.");
+        }
+
+        this.participants = this.participants
+                .stream()
+                .sorted((f, s) -> {
+
+                    if (f.calcSpeed(this) < 0 && s.calcSpeed(this) < 0) {
+                        return 0;
+                    }
+
+                    return Double.compare(s.calcSpeed(this), f.calcSpeed(this));
+
+                })
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+
+    }
+
     public int getWindSpeed() {
         return this.windSpeed;
     }
@@ -134,23 +159,6 @@ public class Race implements RaceModel {
     @Override
     public boolean allowsMotorBoats() {
         return this.allowMotorBoats;
-    }
-
-    public Set<Boat> getParticipants() {
-        return this.participants;
-    }
-
-    public void startRace() {
-        this.participants = this.participants
-                .stream()
-                .sorted(
-                        (f, s) -> {
-                            System.out.println(f.getModel() + " -> " + f.calcSpeed(this));
-                            System.out.println(s.getModel() + " -> " + s.calcSpeed(this));
-                            return Double.compare(s.calcSpeed(this),
-                                    f.calcSpeed(this));
-                        })
-                .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
 
