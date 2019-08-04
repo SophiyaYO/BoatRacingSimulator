@@ -121,10 +121,10 @@ Case |	Message	| Exception
 --- | --- | ---
 Success  |	Engine model \[model] with \[horsepower] HP and displacement \[displacement] cm3 created successfully. |	None
 
-**-	CreateRowBoat\<model>\<weight>\<oars>**
-**-	CreateSailBoat\<model>\<weight>\<sailEfficiency>**
-**-	CreatePowerBoat\<model>\<weight>\<boatEngine>\<secondEngine>**
-**-	CreateYacht\<model>\<weight>\<boatEngine>\<cargoWeight>**
+-	**CreateRowBoat\<model>\<weight>\<oars>**
+-	**CreateSailBoat\<model>\<weight>\<sailEfficiency>**
+-	**CreatePowerBoat\<model>\<weight>\<boatEngine>\<secondEngine>**
+-	**CreateYacht\<model>\<weight>\<boatEngine>\<cargoWeight>**
 
 Depending on the method creates a new Row Boat,Sail Boat, Power Boat or Yacht with the given parameters.
 
@@ -151,8 +151,7 @@ Success 	| Boat with model \[model] has signed up for the current Race. |	None
 The current Race has not been set.	| There is currently no race set.	| NoSetRaceException
 The specified boat does not meet the race constraints.	| The specified boat does not meet the race constraints.	| ArgumentException
 
-**
-Start the current Race, each participant’s time for completing the race is calculated and the 3 with the best times (smallest times) are printed in ascending order. The current Race should be cleared(removed) after this command.
+Start the current Race, each participant’s time for completing the race is calculated and the 3 with the best times \(smallest times\) are printed in ascending order. The current Race should be cleared\(removed) after this command.
 
 **Note:** _**Time should be rounded to exactly two decimal places.**_
 
@@ -171,79 +170,139 @@ The input should be read from the console. The output is written to the console.
 #### **Sample Input 1**
 
 CreateBoatEngine\GPH01\250\100\Jet
+
 CreateBoatEngine\GPH02\150\150\Sterndrive
+
 CreateRowBoat\Rower15\450\6
+
 CreatePowerBoat\PB150\2200\GPH01\GPH02
+
 CreateSailBoat\SailBoatPro\200\98
+
 OpenRace\1000\10\5\true
+
 SignUpBoat\SailBoatPro
+
 SignUpBoat\Rower15
+
 SignUpBoat\PB150
+
 StartRace
+
 End
 
 
 #### **Sample Output 1**
 
 Engine model GPH01 with 250 HP and displacement 100 cm3 created successfully.
+
 Engine model GPH02 with 150 HP and displacement 150 cm3 created successfully.
+
 Row boat with model Rower15 registered successfully.
+
 Power boat with model PB150 registered successfully.
+
 Sail boat with model SailBoatPro registered successfully.
+
 A new race with distance 1000 meters, wind speed 10 m/s and ocean current speed 5 m/s has been set.
+
 Boat with model SailBoatPro has signed up for the current Race.
+
 Boat with model Rower15 has signed up for the current Race.
+
 Boat with model PB150 has signed up for the current Race.
+
 First place: PowerBoat Model: PB150 Time: 2.85 sec
+
 Second place: RowBoat Model: Rower15 Time: 6.45 sec
+
 Third place: SailBoat Model: SailBoatPro Time: Did not finish!
 
 
 #### **Sample Input 2**
 
 CreateBoatEngine\SI20\200\100\Sterndrive
+
 CreateBoatEngine\SI10\300\200\Jet
+
 CreateRowBoat\MasterRower10\200\4
+
 CreateRowBoat\MasterRower12\100\0
+
 StartRace
+
 CreateRowBoat\MasterRower11\200\4
+
 CreatePowerBoat\Turbo220\1550\SI20\SI10
+
 CreateYacht\Luxury101\1000\SI20\150
+
 SignUpBoat\MasterRower11
+
 CreateSailBoat\SailBoatPro\80\98
+
 OpenRace\1500\150\10\false
+
 SignUpBoat\SailBoatPro
+
 SignUpBoat\Turbo220
+
 OpenRace\2000\80\80\false
+
 StartRace
+
 SignUpBoat\MasterRower11
+
 SignUpBoat\MasterRower10
+
 SignUpBoat\Luxury101
+
 StartRace
+
 End
 
 #### **Sample Output 2**
 
 Engine model SI20 with 200 HP and displacement 100 cm3 created successfully.
+
 Engine model SI10 with 300 HP and displacement 200 cm3 created successfully.
+
 Row boat with model MasterRower10 registered successfully.
+
 Oars must be a positive integer.
+
 There is currently no race set.
+
 Row boat with model MasterRower11 registered successfully.
+
 Power boat with model Turbo220 registered successfully.
+
 Yacht with model Luxury101 registered successfully.
+
 There is currently no race set.
+
 Sail boat with model SailBoatPro registered successfully.
+
 A new race with distance 1500 meters, wind speed 150 m/s and ocean current speed 10 m/s has been set.
+
 Boat with model SailBoatPro has signed up for the current Race.
+
 The specified boat does not meet the race constraints.
+
 The current race has already been set.
+
 Not enough contestants for the race.
+
 Boat with model MasterRower11 has signed up for the current Race.
+
 Boat with model MasterRower10 has signed up for the current Race.
+
 The specified boat does not meet the race constraints.
+
 First place: RowBoat Model: MasterRower11 Time: 7.14 sec
+
 Second place: RowBoat Model: MasterRower10 Time: 7.14 sec
+
 Third place: SailBoat Model: SailBoatPro Time: 20.83 sec
 
 ### **Bonus: Implement a GetStatistic Command**
@@ -253,42 +312,76 @@ Implement a GetStatistic command which prints the percentage of participants for
 #### **Example input**
 
 CreateBoatEngine\Engine1\100\100\Sterndrive
+
 CreateBoatEngine\Engine2\150\100\Jet
+
 CreateSailBoat\ExampleSailBoat\50\90
+
 CreateRowBoat\ExampleRowBoat\100\4
+
 CreateRowBoat\ExampleRowBoat2\120\6
+
 CreatePowerBoat\ExamplePowerBoat\800\Engine1\Engine2
+
 CreateYacht\ExampleYacht\700\Engine2\150
+
 OpenRace\100\10\5\true
+
 SignUpBoat\ExampleSailBoat
+
 SignUpBoat\ExampleRowBoat
+
 SignUpBoat\ExampleRowBoat2
+
 SignUpBoat\ExamplePowerBoat
+
 SignUpBoat\ExampleYacht
+
 GetStatistic
+
 StartRace
+
 End
 
 #### **Example output**
 
 Engine model Engine1 with 100 HP and displacement 100 cm3 created successfully.
+
 Engine model Engine2 with 150 HP and displacement 100 cm3 created successfully.
+
 Sail boat with model ExampleSailBoat registered successfully.
+
 Row boat with model ExampleRowBoat registered successfully.
+
 Row boat with model ExampleRowBoat2 registered successfully.
+
 Power boat with model ExamplePowerBoat registered successfully.
+
 Yacht with model ExampleYacht registered successfully.
+
 A new race with distance 100 meters, wind speed 10 m/s and ocean current speed 5 m/s has been set.
+
 Boat with model ExampleSailBoat has signed up for the current Race.
+
 Boat with model ExampleRowBoat has signed up for the current Race.
+
 Boat with model ExampleRowBoat2 has signed up for the current Race.
+
 Boat with model ExamplePowerBoat has signed up for the current Race.
+
 Boat with model ExampleYacht has signed up for the current Race.
+
 PowerBoat -> 20.00%
+
 RowBoat -> 40.00%
+
 SailBoat -> 20.00%
+
 Yacht -> 20.00%
+
 First place: PowerBoat Model: ExamplePowerBoat Time: 0.12 sec
+
 Second place: RowBoat Model: ExampleRowBoat2 Time: 0.21 sec
+
 Third place: RowBoat Model: ExampleRowBoat Time: 0.33 sec
 
