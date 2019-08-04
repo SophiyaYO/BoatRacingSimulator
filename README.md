@@ -167,7 +167,7 @@ Model the system and all entities using the best established practices in object
 The input should be read from the console. The output is written to the console. The input and output formats have been specified above.
 
 <details>
-<summary>Sample IO</summary>
+<summary>:arrow_lower_right: Sample IO:arrow_lower_left:</summary>
 
 
 <details>
@@ -325,7 +325,8 @@ Third place: SailBoat Model: SailBoatPro Time: 20.83 sec
 
 Implement a GetStatistic command which prints the percentage of participants for each boat type in the current race sorted in alphabetical order and rounded to two decimal places. A third zero test is provided speciffically for this command. Check the example bellow to get a better understanding of the task.
 
-#### **Example input**
+<details>
+<summary>Example input</summary>
 
 CreateBoatEngine\Engine1\100\100\Sterndrive
 
@@ -358,8 +359,10 @@ GetStatistic
 StartRace
 
 End
+</details>
 
-#### **Example output**
+<details>
+<summary>Example output</summary>
 
 Engine model Engine1 with 100 HP and displacement 100 cm3 created successfully.
 
@@ -401,3 +404,4 @@ Second place: RowBoat Model: ExampleRowBoat2 Time: 0.21 sec
 
 Third place: RowBoat Model: ExampleRowBoat Time: 0.33 sec
 
+</details>
