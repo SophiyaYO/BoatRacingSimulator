@@ -166,8 +166,12 @@ There are less than 3 boats registered for the race.	| Not enough contestants fo
 Model the system and all entities using the best established practices in object-oriented design and object-oriented programming.
 The input should be read from the console. The output is written to the console. The input and output formats have been specified above.
 
+<details>
+<summary>Sample IO</summary>
 
-#### **Sample Input 1**
+
+<details>
+<summary>Sample Input 1</summary>
 
 CreateBoatEngine\GPH01\250\100\Jet
 
@@ -191,8 +195,10 @@ StartRace
 
 End
 
+</details>
 
-#### **Sample Output 1**
+<details>
+<summary>Sample Output 1</summary>
 
 Engine model GPH01 with 250 HP and displacement 100 cm3 created successfully.
 
@@ -218,8 +224,10 @@ Second place: RowBoat Model: Rower15 Time: 6.45 sec
 
 Third place: SailBoat Model: SailBoatPro Time: Did not finish!
 
+</details>
 
-#### **Sample Input 2**
+<details>
+<summary>Sample Input 2</summary>
 
 CreateBoatEngine\SI20\200\100\Sterndrive
 
@@ -261,7 +269,11 @@ StartRace
 
 End
 
-#### **Sample Output 2**
+</details>
+
+
+<details>
+<summary>Sample Output 2</summary>
 
 Engine model SI20 with 200 HP and displacement 100 cm3 created successfully.
 
@@ -304,6 +316,10 @@ First place: RowBoat Model: MasterRower11 Time: 7.14 sec
 Second place: RowBoat Model: MasterRower10 Time: 7.14 sec
 
 Third place: SailBoat Model: SailBoatPro Time: 20.83 sec
+
+</details>
+
+</details>
 
 ### **Bonus: Implement a GetStatistic Command**
 
